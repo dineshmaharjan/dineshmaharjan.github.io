@@ -44,7 +44,7 @@
             <form>
                 <div class="col-lg-12">
                     <input type="text" id="input_json"
-                        value='{"data": [{"id":1,"question":"What is your name?","answer":["A":"Ramesh","B":"Dinesh","C":"Rajan","D":"Utsav"]}]}'>
+                        value='{"data": [{"id":1,"question":"What is your name?","answer":[{"A":"Ramesh","B":"Dinesh","C":"Rajan","D":"Utsav"}]}]}'>
                     <input id="btn" type="button" class="waves-effect waves-teal btn" value="Prepare"
                         onclick="saveJson()" />
                 </div>
@@ -141,12 +141,12 @@
                     "id": lastData.id + 1,
                     "question": question,
                     "answer": [
-                        
+                        {
                             "A": optionA,
                             "B": optionB,
                             "C": optionC,
                             "D": optionD
-                        
+                        }
 
                     ]
                 }
