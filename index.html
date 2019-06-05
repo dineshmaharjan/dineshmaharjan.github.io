@@ -37,7 +37,9 @@
     <br>
     <div class="container">
         <div class="col-md-12">
-
+            <div class="icon-bar">
+               <span id="counter"></span>
+                </div>
             <blockquote>
                 <h5>Paste content of JSON File</h5>
             </blockquote>
@@ -155,6 +157,7 @@
 
                 // document.getElementById('output').innerHTML = JSON.stringify({ foo: "sample", bar: "sample" }, null, 4);
                 // inputJson = JSON.parse(variable);
+                document.getElementById('counter').innerHTML='Total: '+(lastData.id+1);
             }
             document.getElementById("download").onclick = function () {
                 // when clicked the button
