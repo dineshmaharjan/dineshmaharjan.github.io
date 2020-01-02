@@ -1,0 +1,112 @@
+[
+    {
+        "count": 134,
+        "id": 1,
+        "name": "Sports"
+    },
+    {
+        "count": 402,
+        "id": 2,
+        "name": "Religious"
+    },
+    {
+        "count": 151,
+        "id": 4,
+        "name": "Tech"
+    },
+    {
+        "count": 254,
+        "id": 5,
+        "name": "Gross"
+    },
+    {
+        "count": 288,
+        "id": 6,
+        "name": "At Work"
+    },
+    {
+        "count": 157,
+        "id": 7,
+        "name": "Lawyer"
+    },
+    {
+        "count": 925,
+        "id": 8,
+        "name": "Men / Women"
+    },
+    {
+        "count": 600,
+        "id": 9,
+        "name": "Yo Momma"
+    },
+    {
+        "count": 131,
+        "id": 10,
+        "name": "College"
+    },
+    {
+        "count": 917,
+        "id": 12,
+        "name": "One Liners"
+    },
+    {
+        "count": 656,
+        "id": 13,
+        "name": "Animal"
+    },
+    {
+        "count": 605,
+        "id": 14,
+        "name": "Children"
+    },
+    {
+        "count": 276,
+        "id": 15,
+        "name": "Insults"
+    },
+    {
+        "count": 154,
+        "id": 16,
+        "name": "Bar"
+    },
+    {
+        "count": 167,
+        "id": 17,
+        "name": "Knock-Knock"
+    },
+    {
+        "count": 208,
+        "id": 18,
+        "name": "Medical"
+    },
+    {
+        "count": 110,
+        "id": 19,
+        "name": "Lightbulb"
+    },
+    {
+        "count": 598,
+        "id": 20,
+        "name": "Blond"
+    },
+    {
+        "count": 457,
+        "id": 21,
+        "name": "Puns"
+    },
+    {
+        "count": 241,
+        "id": 22,
+        "name": "Redneck"
+    },
+    {
+        "count": 279,
+        "id": 23,
+        "name": "News / Politics"
+    },
+    {
+        "count": 2305,
+        "id": 24,
+        "name": "Other / Misc"
+    }
+]
