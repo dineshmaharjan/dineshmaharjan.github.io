@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_components/components/app_bar/app_bar_section.dart';
+import 'package:flutter_components/components/app_bar/collapsing_app_bar/collapsing_app_bar_section.dart';
+import 'package:flutter_components/components/app_bar/collapsing_app_bar_with_tab_bar/collapsing_app_bar_with_tab_section.dart';
 
-import 'components/bottomNav/bottom_nav_section.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const BottomNavSection(),
+      home: const CollapsingAppBarWithTabSection(),
     );
   }
 }

@@ -5,9 +5,6 @@ import 'package:flutter_components/utils/responsive/responsive_util.dart';
 
 import 'bottom_nav_web.dart';
 
-/// @author: Dinesh Maharjan
-/// @email: dinesh.maharjan@fonepay.com
-/// @created_at:  11/2/2022, Wednesday
 
 class BottomNavSection extends StatelessWidget {
   const BottomNavSection({Key? key}) : super(key: key);
