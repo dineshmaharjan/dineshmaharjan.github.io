@@ -1,188 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quiz JSON</title>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aes-js/3.1.2/index.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="flutter_components">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <title>flutter_components</title>
+  <link rel="manifest" href="manifest.json">
 </head>
-<style type="text/css">
-    #output {
-        width: 100%;
-        height: 100%;
-        min-height: 400px;
-        resize: none;
-    }
-
-    #btn {
-        color: white;
-
-    }
-
-  #download{
-      color:white;
-  }
-</style>
-
 <body>
-    <br>
-    <div class="container">
-        <div class="col-md-12">
-            <div class="icon-bar">
-               <span id="counter"></span>
-                </div>
-            <blockquote>
-                <h5>Paste content of JSON File</h5>
-            </blockquote>
-            <form>
-                <div class="col-lg-12">
-                    <input type="text" id="input_json"
-                        value='{"data": [{"id":1,"question":"What is your name?","answer":["Ramesh","Dinesh","Rajan","Utsav"]}]}'>
-                    <input id="btn" type="button" class="waves-effect waves-teal btn" value="Prepare"
-                        onclick="saveJson()" />
-                </div>
-            </form>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    var serviceWorkerVersion = '1203355273';
+    var scriptLoaded = false;
+    function loadMainDartJs() {
+      if (scriptLoaded) {
+        return;
+      }
+      scriptLoaded = true;
+      var scriptTag = document.createElement('script');
+      scriptTag.src = 'main.dart.js';
+      scriptTag.type = 'application/javascript';
+      document.body.append(scriptTag);
+    }
 
-            </form>
-            <br>
-            <br>
-            <blockquote>
-                <h5>Append New Data</h5>
-            </blockquote>
-            <form>
-                <div class="col-lg-12">
-                    <div class="col-md-12">
-                        <label>Question</label>
-
-                        <input type="text" id="question" value="">
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Option A</label>
-                            <input type="text" id="optionA" value="" placeholder="Input correct answer in Option A">
-                            <label>Option B</label>
-                            <input type="text" id="optionB" value="">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Option C</label>
-                            <input type="text" id="optionC" value="">
-                            <label>Option D</label>
-                            <input type="text" id="optionD" value="">
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <input id="btn" type="button" class="waves-effect waves-light btn" value="Add a question"
-                    onclick="addToJson()" />
-
-            </form>
-            <br>
-            <blockquote>
-                <h5>Output json</h5>
-            </blockquote>
-            <textarea id="output"></textarea>
-            <br>
-            <br>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label>File name</label>
-                        <input type="text" id="fileName" value="" />
-                    </div>
-
-                    <div class="col-md-2">
-                        <br>
-                        <br>
-
-                        <span><b>.json</b></span>
-                    </div>
-
-                </div>
-            </div>
-            <a id="download" class="waves-effect waves-light btn">Download</a>
-
-            <br>
-            <br>
-        </div>
-
-
-        <script type="text/javascript">
-            var inputJson;
-            function saveJson() {
-                var variable = document.getElementById('input_json').value;
-                // document.getElementById('output').innerHTML = "Data Prepared, You can start adding new data";
-                window.alert("Data Prepared, You can start adding new data now.")
-                inputJson = JSON.parse(variable);
-                // let lastDataInput = inputJson.data.length - 1
-                // let lastData = inputJson.data[0]
-                document.getElementById('output').innerHTML = JSON.stringify(inputJson, null, 4);
-
-                // document.getElementById('output').innerHTML = JSON.stringify(lastData.id + 1)
-            }
-            function addToJson() {
-                var question = document.getElementById('question').value;
-                var optionA = document.getElementById('optionA').value;
-                var optionB = document.getElementById('optionB').value;
-                var optionC = document.getElementById('optionC').value;
-                var optionD = document.getElementById('optionD').value;
-                let lastDataInput = inputJson.data.length - 1;
-                let lastData = inputJson.data[lastDataInput];
-                let appendJson = {
-                    "id": lastData.id + 1,
-                    "question": question,
-                    "answer": [
-                        optionA,
-                        optionB,
-                        optionC,
-                        optionD
-
-                    ]
+    if ('serviceWorker' in navigator) {
+      // Service workers are supported. Use them.
+      window.addEventListener('load', function () {
+        // Wait for registration to finish before dropping the <script> tag.
+        // Otherwise, the browser will load the script multiple times,
+        // potentially different versions.
+        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+        navigator.serviceWorker.register(serviceWorkerUrl)
+          .then((reg) => {
+            function waitForActivation(serviceWorker) {
+              serviceWorker.addEventListener('statechange', () => {
+                if (serviceWorker.state == 'activated') {
+                  console.log('Installed new service worker.');
+                  loadMainDartJs();
                 }
-                inputJson.data.push(appendJson)
-                document.getElementById('output').innerHTML = JSON.stringify(inputJson, null, 4);
-
-                // document.getElementById('output').innerHTML = JSON.stringify({ foo: "sample", bar: "sample" }, null, 4);
-                // inputJson = JSON.parse(variable);
-                document.getElementById('counter').innerHTML='Total: '+(lastData.id+1);
+              });
             }
-            document.getElementById("download").onclick = function () {
-                // when clicked the button
-                var content = document.getElementById('output').value;
-                var fileName = document.getElementById('fileName').value;
-                // a [save as] dialog will be shown
-                // window.open("data:application/txt," + encodeURIComponent(content), "_self");
-                // var text = "foo\nbar\nbaz";
-
-                var fileBlob = new Blob([content], { type: "application/octet-binary" });
-
-
-                var link = document.getElementById("download");
-                link.setAttribute("href", URL.createObjectURL(fileBlob));
-                if (fileName != null || fileName != "") {
-
-                    link.setAttribute("download", fileName + ".json");
-                } 
-                if(fileName===null || fileName==="") {
-                    link.setAttribute("download", "quizquestion.json");
-
-                }
-                // link.appendChild(document.createTextNode("Save file"));
-                // document.body.appendChild(link);
+            if (!reg.active && (reg.installing || reg.waiting)) {
+              // No active web worker and we have installed or are installing
+              // one for the first time. Simply wait for it to activate.
+              waitForActivation(reg.installing || reg.waiting);
+            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
+              // When the app updates the serviceWorkerVersion changes, so we
+              // need to ask the service worker to update.
+              console.log('New service worker available.');
+              reg.update();
+              waitForActivation(reg.installing);
+            } else {
+              // Existing service worker is still good.
+              console.log('Loading app from service worker.');
+              loadMainDartJs();
             }
-        </script>
+          });
+
+        // If service worker doesn't succeed in a reasonable amount of time,
+        // fallback to plaint <script> tag.
+        setTimeout(() => {
+          if (!scriptLoaded) {
+            console.warn(
+              'Failed to load app from service worker. Falling back to plain <script> tag.',
+            );
+            loadMainDartJs();
+          }
+        }, 4000);
+      });
+    } else {
+      // Service workers not supported. Just drop the <script> tag.
+      loadMainDartJs();
+    }
+  </script>
 </body>
-
-
 </html>

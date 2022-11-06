@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../screen_utils.dart';
-
+import 'package:flutter_components/utils/responsive/screen_utils.dart';
 
 class ResponsiveUtil extends StatelessWidget {
   const ResponsiveUtil(
