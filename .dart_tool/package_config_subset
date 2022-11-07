@@ -96,6 +96,11 @@ file:///C:/Users/Lenovo/fvm/versions/stable/packages/flutter_test/
 file:///C:/Users/Lenovo/fvm/versions/stable/packages/flutter_test/lib/
 flutter_components
 2.12
+<<<<<<< HEAD
 file:///D:/Dinesh/flutter_personal_projects/flutter_components/build/web/
 file:///D:/Dinesh/flutter_personal_projects/flutter_components/build/web/lib/
+=======
+file:///D:/Dinesh/flutter_personal_projects/flutter_components/
+file:///D:/Dinesh/flutter_personal_projects/flutter_components/lib/
+>>>>>>> 8eec1de4b11829cfcb9ee0f806028c651cdd9fb1
 2
